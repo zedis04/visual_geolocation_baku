@@ -1,0 +1,6 @@
+data/train
+data/benchmark
+.ipynb_checkpoints/
+images/
+model/
+eda.ipynb
