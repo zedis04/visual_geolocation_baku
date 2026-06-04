@@ -65,7 +65,7 @@ def find_distance(grid_gdf, pred_cell_ids, true_cell_ids):
   return distances
 
 def calc_ratios(arr):
-  counts = {100:0, 500:0, 1000:0, 5000:0, 10000:0}
+  counts = {100:0, 500:0, 1000:0, 5000:0, "above 5000":0}
   for el in arr:
     if el < 100:
       counts[100] += 1
@@ -76,7 +76,7 @@ def calc_ratios(arr):
     elif el < 5000:
       counts[5000] += 1
     else:
-      counts[10000] += 1
+      counts["above 5000"] += 1
   return counts
 
 def per_district_performance(pred_cell_ids, true_cell_ids, grid_gdf):
