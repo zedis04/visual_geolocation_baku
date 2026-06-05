@@ -33,17 +33,37 @@ model_checkpoints = ["facebook/convnext-tiny-224", "geolocal/StreetCLIP", "micro
 
 Example command:
 
-python src/train/train.py \ --model  0 \ --epochs 15 \ --batch_size 32 \ --lr 5e-5 \ --data data_folder_path
+python src/train/train.py \
+--model  model_index_from_array \
+ --epochs 15 \
+--batch_size 32 \
+--lr 5e-5 \
+--data data_folder_path
 
 # Evaluation
 Example command:
 
-python src/eval/evaluate.py \ --model  model_path \ --data data_folder_path \  --grid grid_file_name  \ --is_clip
+python src/eval/evaluate.py \ 
+
+--model  model_path \
+
+--data data_folder_path \
+
+--grid grid_file_name  \
+
+ --is_clip
 
 # Inference
 Example command:
 
-python predict.py \ --model  model_path \ --image path/to/photo.jpg model_path \  --grid grid_file_path  \ --is_clip
+python predict.py \ 
+
+--model  model_path \ 
+
+--image path/to/photo.jpg \
+
+--grid grid_file_path  \ 
+--is_clip
 
 An output JSON file will be generated.
 
