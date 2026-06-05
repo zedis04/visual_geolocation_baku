@@ -43,7 +43,7 @@ python src/eval/evaluate.py \ --model  model_path \ --data data_folder_path \  -
 # Inference
 Example command:
 
-python predict.py \ --model  model_path \ --image path/to/photo.jpg model_path \  --grid grid_file_name  \ --is_clip
+python predict.py \ --model  model_path \ --image path/to/photo.jpg model_path \  --grid grid_file_path  \ --is_clip
 
 An output JSON file will be generated.
 
