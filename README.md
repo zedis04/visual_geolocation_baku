@@ -76,4 +76,4 @@ python predict.py \
 An output JSON file will be generated.
 
 # Deliverables
-The repo contains source code however benchmark and finetuned model weights are not provided here.
+The repo contains source code however finetuned model weights are not provided here.
