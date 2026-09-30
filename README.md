@@ -26,6 +26,8 @@ Data was created using scripts in data_collection folder in following order:
 
 To use Mapillary API individual access token must be created.
 
+Custom benchmark can be accessed via this [link](https://drive.google.com/drive/folders/1-ypXmgGEs2kqsEOGpoo-tHGmG8sBVRRK?usp=sharing).
+
 # Traning 
 The following models can be trained with script, the appropriate index of the model should be included in the command: 
 

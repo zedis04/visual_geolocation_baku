@@ -24,6 +24,13 @@ model_checkpoints = ["facebook/convnext-tiny-224", "geolocal/StreetCLIP", "micro
 SEED = 42
 accuracy_metric = evaluate.load("accuracy")
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+if torch.cuda.is_available():
+    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+else:
+    print("CUDA not available. Using CPU.")
+
 def collate_fn(examples):
     pixel_values = torch.stack([example["pixel_values"] for example in examples])
     labels = torch.tensor([example["label"] for example in examples])

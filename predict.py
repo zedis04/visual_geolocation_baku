@@ -13,12 +13,23 @@ import torch
 SEED = 42
 accuracy_metric = evaluate.load("accuracy")
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+if torch.cuda.is_available():
+    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+else:
+    print("CUDA not available. Using CPU.")
+
 def load_preprocess_image(image_path, image_processor):
     image = Image.open(image_path).convert("RGB")
     image_encoding = image_processor(image, return_tensors="pt")
     return image_encoding
 
 def predict(model, image_encoding, id2label):
+    image_encoding = {
+        key: value.to(device)
+        for key, value in image_encoding.items()
+    }
     with torch.no_grad():
         logits = model(**image_encoding).logits
     # predicted_label = logits.argmax(-1).item()
@@ -42,6 +53,8 @@ def main(args):
         model = CLIPForImageClassification.from_pretrained(args.model)
     else:
         model = AutoModelForImageClassification.from_pretrained(args.model)
+
+    model = model.to(device)
     image_processor = AutoImageProcessor.from_pretrained(args.model)
     grid_path = os.path.join(args.grid)
     image_path = args.image

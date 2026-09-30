@@ -23,6 +23,11 @@ from torchvision.transforms import (
 SEED = 42
 accuracy_metric = evaluate.load("accuracy")
 
+if torch.cuda.is_available():
+    print(f"Using GPU: {torch.cuda.get_device_name(0)}")
+else:
+    print("CUDA not available. Using CPU.")
+
 def haversine_m(lat1, lon1, lat2, lon2):
     R = 6371000
     lat1 = np.radians(lat1)
